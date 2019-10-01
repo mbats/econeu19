@@ -24,4 +24,22 @@ public class Services {
 		}
 	}	
 	
+	public String getLabel(Instruction instruction) {		
+		if (instruction instanceof GoForward) {
+			return ((GoForward)instruction).getCm()+" cm";
+		}
+		else if (instruction instanceof Rotate) {
+			if (((Rotate)instruction).isRandom())
+				return "?";
+			else
+				return ((Rotate)instruction).getDegrees()+"°";
+		}
+		else if (instruction instanceof Choreography) {
+			return ((Choreography)instruction).getName();
+		}
+		else
+			return "";
+	}
+
+
 }
