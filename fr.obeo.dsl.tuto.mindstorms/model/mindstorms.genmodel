@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2016 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Obeo - initial API and implementation"
+    modelDirectory="/fr.obeo.dsl.tuto.mindstorms/src-gen" creationIcons="false" creationSubmenus="true"
+    editDirectory="/fr.obeo.dsl.tuto.mindstorms.edit/src-gen" editorDirectory="/fr.obeo.dsl.tuto.mindstorms.editor/src-gen"
+    modelPluginID="fr.obeo.dsl.tuto.mindstorms" modelName="Mindstorms" modelPluginClass=""
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory="/fr.obeo.dsl.tuto.mindstorms.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>mindstorms.ecore</foreignModel>
+  <genPackages prefix="Mindstorms" basePackage="fr.obeo.dsl.tuto" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="mindstorms.ecore#/" publicationLocation="">
+    <genClasses image="false" ecoreClass="mindstorms.ecore#//Instruction"/>
+    <genClasses ecoreClass="mindstorms.ecore#//Choreography">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Choreography/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Choreography/instructions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mindstorms.ecore#//Action"/>
+    <genClasses ecoreClass="mindstorms.ecore#//Grab"/>
+    <genClasses ecoreClass="mindstorms.ecore#//Release"/>
+    <genClasses ecoreClass="mindstorms.ecore#//Rotate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Rotate/degrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Rotate/random"/>
+    </genClasses>
+    <genClasses ecoreClass="mindstorms.ecore#//GoForward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//GoForward/cm"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
