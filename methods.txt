@@ -1,0 +1,48 @@
+*** Method for RotateItemProvider ***
+
+	/**
+	 * This returns Rotate.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	@Override
+	public Object getImage(Object object) {
+		if (((Rotate)object).getDegrees()>=0) {
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/Rotate"));
+		}
+		else {
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/Rotate_Right"));
+		}
+	}
+
+*** Methods for Services.java***
+
+	public Instruction getNextInstruction(Instruction instruction) {
+		Choreography parentChoreography=(Choreography)instruction.eContainer();
+		List<Instruction> actions=parentChoreography.getInstructions();
+		int position=actions.indexOf(instruction);
+		if (position==actions.size()-1) {
+			return null;
+		}
+		else {
+			return actions.get(position+1);
+		}
+	}
+
+	public String getLabel(Instruction instruction) {		
+		if (instruction instanceof GoForward) {
+			return ((GoForward)instruction).getCm()+" cm";
+		}
+		else if (instruction instanceof Rotate) {
+			if (((Rotate)instruction).isRandom())
+				return "?";
+			else
+				return ((Rotate)instruction).getDegrees()+"°";
+		}
+		else if (instruction instanceof Choreography) {
+			return ((Choreography)instruction).getName();
+		}
+		else
+			return "";
+	}
